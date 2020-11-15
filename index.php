@@ -104,19 +104,23 @@ foreach ($rand as $key => $titik) {
     $a = substr($titik, 0, 1);
     // Start dari 9 ambil 2 karakter (10)
     $b = substr($titik, 2, 1);
-    echo "<pre>";
-    // echo "$titik <br>";
-    // echo "$a <br>";
-    // echo "$b <br>";
-    $hasil = atasknn($a, $b);
-    // echo "$hasil <br>";
-    print_r($hasil);
-    echo "</pre>";
+    $atas = atas($a, $b);
+    foreach($atas as $koordinat) { 
+        foreach ($rand as $key => $koor) {
+            if($koordinat == $koor) {
+                echo "<pre>";
+                print_r($titik);
+                echo "</pre>";
+
+            }
+        } 
+        }
 }
 
 echo "<pre>";
 // print_r($angka);
 // print_r($a);
+echo "Posisi bidak ratu (x,y) <br>";
 print_r($rand);
 // print_r($a);
 echo "</pre>";
