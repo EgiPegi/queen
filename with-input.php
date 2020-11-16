@@ -1,17 +1,29 @@
 <?php
 error_reporting(0);
-$angka = [1,2,3,4,5,6,7,8];
+?>
+<form method="post">
+<p>Masukan bidak 1 (x,y) :</p>
+<input type="text" name="rand[0]" /><br />
+<p>Masukan bidak 2 (x,y) :</p>
+<input type="text" name="rand[1]" /><br />
+<p>Masukan bidak 3 (x,y) :</p>
+<input type="text" name="rand[2]" /><br />
+<p>Masukan bidak 4 (x,y) :</p>
+<input type="text" name="rand[3]" /><br />
+<p>Masukan bidak 5 (x,y) :</p>
+<input type="text" name="rand[4]" /><br />
+<p>Masukan bidak 6 (x,y) :</p>
+<input type="text" name="rand[5]" /><br />
+<p>Masukan bidak 7 (x,y) :</p>
+<input type="text" name="rand[6]" /><br />
+<p>Masukan bidak 8 (x,y) :</p>
+<input type="text" name="rand[7]" /><br />
+<input type="submit">
+</form>
 
-//mendapatkan pasangan angka(koordinat bidak ratu)
-for($i = 0; $i < 8; $i++) {
-    for($j = 0; $j < 8; $j++){
-            $pair = $angka[$i].','.$angka[$j]; 
-            $queen[$pair] = 0; 
-    }
-}
 
-// mengacak koordinat bidak ratu
-$rand = array_rand($queen,8);
+<?php
+$rand = $_POST['rand'];
 
 //membuat class queen
 
@@ -169,7 +181,7 @@ foreach ($rand as $key => $titik) {
     $bawahknn = $queen -> bawahknn($a, $b, $rand);
     $bawahkri = $queen -> bawahkri($a, $b, $rand);
 
-
+    
     // echo "<pre>";
     echo "$atas";
     echo "$bawah";
@@ -182,11 +194,6 @@ foreach ($rand as $key => $titik) {
 
     // echo "</pre>";
 
-    if ($queen == null) {
-        echo "KJGKvfvikhbvihyfgiKHVIHK";
-    }
 
 }
-
-
 ?>
