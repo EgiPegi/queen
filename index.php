@@ -54,7 +54,7 @@ function kanan($a, $b, $rn)
         $knn = $a.','.$b;
         foreach ($rn as $key => $koor){
             if ($knn == $koor) {
-                $pknn = $kri;
+                $pknn = $knn;
             }
         }
     }
@@ -82,8 +82,13 @@ function atasknn($a, $b, $rn)
         $a++;
         $b++;
         $atskn = $a.','.$b;
+        foreach ($rn as $key => $koor){
+            if ($atskn == $koor) {
+                $patskn = $atskn;
+            }
+        }
     }
-    return $atskn;
+    return $patskn;
 }
 
 //diagonal ke atas kiri
@@ -93,8 +98,13 @@ function ataskri($a, $b, $rn)
         $a--;
         $b++;
         $atskr = $a.','.$b;
+        foreach ($rn as $key => $koor){
+            if ($atskr == $koor) {
+                $patskr = $atskr;
+            }
+        }
     }
-    return $atskr;
+    return $patskr;
 }
 
 //diagonal ke bawah kanan
@@ -104,8 +114,13 @@ function bawahknn($a, $b, $rn)
         $a++;
         $b--;
         $bwhkn = $a.','.$b;
+        foreach ($rn as $key => $koor){
+            if ($bwhkn == $koor) {
+                $pbwhkn = $bwhkn;
+            }
+        }
     }
-    return $bwhkn;
+    return $pbwhkn;
 }
 
 //diagonal ke bawah kiri
@@ -115,8 +130,13 @@ function bawahkri($a, $b, $rn)
         $a--;
         $b--;
         $bwhkr = $a.','.$b;
+        foreach ($rn as $key => $koor){
+            if ($bwhkr == $koor) {
+                $pbwhkr = $bwhkr;
+            }
+        }
     }
-    return $bwhkr;
+    return $pbwhkr;
 }
 
 //================================================================//
@@ -130,11 +150,22 @@ foreach ($rand as $key => $titik) {
     $bawah = bawah($a, $b, $rand);
     $kanan = kanan($a, $b, $rand);
     $kiri = kiri($a, $b, $rand);
+    $atasknn = atasknn($a, $b, $rand);
+    $ataskri = ataskri($a, $b, $rand);
+    $bawahknn = bawahknn($a, $b, $rand);
+    $bawahkri = bawahkri($a, $b, $rand);
+
+
     echo "<pre>";
     print_r($atas);
     print_r($bawah);
     print_r($kanan); 
     print_r($kiri); 
+    print_r($atasknn);
+    print_r($ataskri);
+    print_r($bawahknn);
+    print_r($bawahkri);
+
     echo "</pre>";
 
 }
