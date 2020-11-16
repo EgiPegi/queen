@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 $angka = [1,2,3,4,5,6,7,8];
 
 //mendapatkan pasangan angka(koordinat bidak ratu)
@@ -15,13 +16,19 @@ $rand = array_rand($queen,8);
 //============ menentukan gerakan ===============//
 
 //lurus ke atas
-function atas($a, $b)
+function atas($a, $b, $rn)
 {
 	while ($b > 1) {
         $b--;
-        $ats[] = $a.','.$b;
+        $ats = $a.','.$b;
+        foreach ($rn as $key => $koor) {
+            if($ats == $koor) {
+                $pats = $ats;
+        
+            }
+        }
     }
-    return $ats;
+    return $pats;
 }
 
 //lurus ke bawah
@@ -29,7 +36,7 @@ function bawah($a, $b)
 {
 	while ($b < 8) {
         $b++;
-        $bwh[] = $a.','.$b;
+        $bwh = $a.','.$b;
     }
     return $bwh;
 }
@@ -39,7 +46,7 @@ function kanan($a, $b)
 {
 	while ($a < 8) {
         $a++;
-        $knn[] = $a.','.$b;
+        $knn = $a.','.$b;
     }
     return $knn;
 }
@@ -48,7 +55,7 @@ function kiri($a, $b)
 {
 	while ($a > 1) {
         $a--;
-        $kri[] = $a.','.$b;
+        $kri = $a.','.$b;
     }
     return $kri;
 }
@@ -59,7 +66,7 @@ function atasknn($a, $b)
 	while ($b < 8 && $a < 8) {
         $a++;
         $b++;
-        $atskn[] = $a.','.$b;
+        $atskn = $a.','.$b;
     }
     return $atskn;
 }
@@ -70,7 +77,7 @@ function ataskri($a, $b)
 	while ($b < 8 && $a < 1) {
         $a--;
         $b++;
-        $atskr[] = $a.','.$b;
+        $atskr = $a.','.$b;
     }
     return $atskr;
 }
@@ -81,7 +88,7 @@ function bawahknn($a, $b)
 	while ($a < 8 && $b > 1) {
         $a++;
         $b--;
-        $bwhkn[] = $a.','.$b;
+        $bwhkn = $a.','.$b;
     }
     return $bwhkn;
 }
@@ -92,7 +99,7 @@ function bawahkri($a, $b)
 	while ($a > 1 && $b > 1) {
         $a--;
         $b--;
-        $bwhkr[] = $a.','.$b;
+        $bwhkr = $a.','.$b;
     }
     return $bwhkr;
 }
@@ -104,17 +111,98 @@ foreach ($rand as $key => $titik) {
     $a = substr($titik, 0, 1);
     // Start dari 9 ambil 2 karakter (10)
     $b = substr($titik, 2, 1);
-    $atas = atas($a, $b);
-    foreach($atas as $koordinat) { 
-        foreach ($rand as $key => $koor) {
-            if($koordinat == $koor) {
-                echo "<pre>";
-                print_r($titik);
-                echo "</pre>";
+    $atas = atas($a, $b, $rand);
+    echo "<pre>";
+    print_r($atas);
+    echo "</pre>";
+    // foreach($atas as $koordinat) { 
+    //     foreach ($rand as $key => $koor) {
+    //         if($koordinat == $koor) {
+    //             echo "<pre>";
+    //             print_r($titik);
+    //             echo "</pre>";
 
-            }
-        } 
-        }
+    //         }
+    //     } 
+    //     }
+    //     $bawah = bawah($a, $b);
+    // foreach($bawah as $koordinat) { 
+    //     foreach ($rand as $key => $koor) {
+    //         if($koordinat == $koor) {
+    //             echo "<pre>";
+    //             print_r($titik);
+    //             echo "</pre>";
+
+    //         }
+    //     } 
+    //     }
+    //     $kanan = kanan($a, $b);
+    // foreach($kanan as $koordinat) { 
+    //     foreach ($rand as $key => $koor) {
+    //         if($koordinat == $koor) {
+    //             echo "<pre>";
+    //             print_r($titik);
+    //             echo "</pre>";
+
+    //         }
+    //     } 
+    //     }
+    //     $kiri = kiri($a, $b);
+    // foreach($kiri as $koordinat) { 
+    //     foreach ($rand as $key => $koor) {
+    //         if($koordinat == $koor) {
+    //             echo "<pre>";
+    //             print_r($titik);
+    //             echo "</pre>";
+
+    //         }
+    //     } 
+    //     }
+    //     $atasknn = atasknn($a, $b);
+    // foreach($atasknn as $koordinat) { 
+    //     foreach ($rand as $key => $koor) {
+    //         if($koordinat == $koor) {
+    //             echo "<pre>";
+    //             print_r($titik);
+    //             echo "</pre>";
+
+    //         }
+    //     } 
+    //     }
+    //     $ataskri = ataskri($a, $b);
+    // foreach($ataskri as $koordinat) { 
+    //     foreach ($rand as $key => $koor) {
+    //         if($koordinat == $koor) {
+    //             echo "<pre>";
+    //             print_r($titik);
+    //             echo "</pre>";
+
+    //         }
+    //     } 
+    //     }
+    //     $bawahknn = bawahknn($a, $b);
+    // foreach($bawahknn as $koordinat) { 
+    //     foreach ($rand as $key => $koor) {
+    //         if($koordinat == $koor) {
+    //             echo "<pre>";
+    //             print_r($titik);
+    //             echo "</pre>";
+
+    //         }
+    //     } 
+    //     }
+    //     $bawahkri = bawahkri($a, $b);
+    // foreach($bawahkri as $koordinat) { 
+    //     foreach ($rand as $key => $koor) {
+    //         if($koordinat == $koor) {
+    //             echo "<pre>";
+    //             print_r($titik);
+    //             echo "</pre>";
+
+    //         }
+    //     } 
+    //     }
+
 }
 
 echo "<pre>";
