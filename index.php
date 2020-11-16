@@ -160,33 +160,44 @@ foreach ($rand as $key => $titik) {
     // Start dari 9 ambil 2 karakter (10)
     $b = substr($titik, 2, 1);
     $queen = new queen();
-    $atas = $queen -> atas($a, $b, $rand);
-    $bawah = $queen -> bawah($a, $b, $rand);
-    $kanan = $queen -> kanan($a, $b, $rand);
-    $kiri = $queen -> kiri($a, $b, $rand);
-    $atasknn = $queen -> atasknn($a, $b, $rand);
-    $ataskri = $queen -> ataskri($a, $b, $rand);
-    $bawahknn = $queen -> bawahknn($a, $b, $rand);
-    $bawahkri = $queen -> bawahkri($a, $b, $rand);
-
-
-    // echo "<pre>";
-    echo "$atas";
-    echo "$bawah";
-    echo "$kanan"; 
-    echo "$kiri"; 
-    echo "$atasknn";
-    echo "$ataskri";
-    echo "$bawahknn";
-    echo "$bawahkri";
-
-    // echo "</pre>";
-
-    if ($queen == null) {
-        echo "KJGKvfvikhbvihyfgiKHVIHK";
-    }
-
+    $atas[] = $queen -> atas($a, $b, $rand);
+    $bawah[] = $queen -> bawah($a, $b, $rand);
+    $kanan[] = $queen -> kanan($a, $b, $rand);
+    $kiri[] = $queen -> kiri($a, $b, $rand);
+    $atasknn[] = $queen -> atasknn($a, $b, $rand);
+    $ataskri[] = $queen -> ataskri($a, $b, $rand);
+    $bawahknn[] = $queen -> bawahknn($a, $b, $rand);
+    $bawahkri[] = $queen -> bawahkri($a, $b, $rand);
 }
-
+    if (empty($atas)&&empty($bawah)&&empty($kanan)&&empty($kiri)&&empty($atasknn)&&empty($ataskri)&&empty($bawahknn)&&empty($bawahkri)) {
+        echo "Tidak Ditemukan";
+    } else {
+    // echo "<pre>";
+    foreach ($atas as $key => $value) {
+        echo $value;
+    }
+    foreach ($bawah as $key => $value) {
+        echo $value;
+    }
+    foreach ($kanan as $key => $value) {
+        echo $value;
+    }
+    foreach ($kiri as $key => $value) {
+        echo $value;
+    }
+    foreach ($atasknn as $key => $value) {
+        echo $value;
+    }
+    foreach ($ataskri as $key => $value) {
+        echo $value;
+    }
+    foreach ($bawahknn as $key => $value) {
+        echo $value;
+    }
+    foreach ($bawahkri as $key => $value) {
+        echo $value;
+    }
+    // echo "</pre>";
+    }
 
 ?>
