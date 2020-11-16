@@ -32,13 +32,18 @@ function atas($a, $b, $rn)
 }
 
 //lurus ke bawah
-function bawah($a, $b)
+function bawah($a, $b, $rn)
 {
 	while ($b < 8) {
         $b++;
         $bwh = $a.','.$b;
+        foreach ($rn as $key => $koor){
+            if ($bwh == $koor) {
+                $pbwh = $bwh;
+            }
+        }
     }
-    return $bwh;
+    return $pbwh;
 }
 
 //lurus ke kanan
@@ -112,8 +117,10 @@ foreach ($rand as $key => $titik) {
     // Start dari 9 ambil 2 karakter (10)
     $b = substr($titik, 2, 1);
     $atas = atas($a, $b, $rand);
+    $bawah = bawah($a, $b, $rand);
     echo "<pre>";
     print_r($atas);
+    print_r($bawah);
     echo "</pre>";
     // foreach($atas as $koordinat) { 
     //     foreach ($rand as $key => $koor) {
