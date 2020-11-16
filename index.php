@@ -52,8 +52,13 @@ function kanan($a, $b, $rn)
 	while ($a < 8) {
         $a++;
         $knn = $a.','.$b;
+        foreach ($rn as $key => $koor){
+            if ($knn == $koor) {
+                $pknn = $kri;
+            }
+        }
     }
-    return $knn;
+    return $pknn;
 }
 //lurus ke kiri
 function kiri($a, $b, $rn)
@@ -123,10 +128,12 @@ foreach ($rand as $key => $titik) {
     $b = substr($titik, 2, 1);
     $atas = atas($a, $b, $rand);
     $bawah = bawah($a, $b, $rand);
+    $kanan = kanan($a, $b, $rand);
     $kiri = kiri($a, $b, $rand);
     echo "<pre>";
     print_r($atas);
     print_r($bawah);
+    print_r($kanan); 
     print_r($kiri); 
     echo "</pre>";
 
